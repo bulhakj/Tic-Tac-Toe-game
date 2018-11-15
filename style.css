@@ -27,12 +27,24 @@ body {
 }
 
 .informations {
-    width: 700px;
+    width: 200px;
+    height:28px;
     position: relative;
     text-align: center;
     margin-top: 70px;
+    left:36%;
     font-size: 20px;
     letter-spacing: 2px;
+}
+
+.new-game-button {
+    border: 2px #91935D solid;
+    border-radius: 5px;
+}
+
+.new-game-button:hover {
+    background-color: #91935D;
+    cursor: pointer;
 }
 
 
@@ -70,6 +82,14 @@ body {
     height: 10%;
 }
 
+#player-0 {
+
+}
+
+#player-1 {
+
+}
+
 .splitting-players {
     width: 50%;
     position: relative;
@@ -87,6 +107,15 @@ body {
     letter-spacing: 2px;
     display: block;
 
+}
+
+.winner-theme {
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    font-weight: bold;
+    color: red;
 }
 
 .active-player { background-color: #96813C; font-weight: 400 !important; }
