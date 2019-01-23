@@ -1,2 +1,2 @@
 # Tic-Tac-Toe-game
-Tic tac toe written in ES5
+My very first JavaScript game written in ES5(it's an old one project).
