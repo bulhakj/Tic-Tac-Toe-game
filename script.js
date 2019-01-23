@@ -5,18 +5,11 @@ var button;
 var isEmpty = 0;
 var counter = 0;
 
-
 var wholeBoard = document.querySelector(".board");
 var board = document.querySelectorAll(".square");
 var informations = document.querySelector(".informations");
 var player0 = document.getElementById("player-0");
 var player1 = document.getElementById("player-1");
-
-
-var logBoardIndex = function (boardIndex) {
-    console.log('boardIndex:', boardIndex);
-}
-
 
 activePlayer = 0;
 var counter = 0;
@@ -24,24 +17,15 @@ var counter = 0;
 boardInit();
 play();
 
-
-
 function play() {
     board.forEach(function test(square, index) {
         board[index].addEventListener("click", function playing() {
-            logBoardIndex(index);
-            // if (activePlayer == 0 || activePlayer == 1) {
                 if(board[index].value == 0 && board[index].value != markers[activePlayer]) {
                     board[index].value = markers[activePlayer];
                     board[index].textContent = markers[activePlayer];
                     counter++;
-                    console.log("długość countera: " + counter);
-                    // checkDraw();
                     getWinner();
-                    // check();
                     changePlayer();
-
-
             }
         })
     })
@@ -49,24 +33,19 @@ function play() {
     for (i = 0; i < board.length; i++) {
         board[i].value = 0;
         board[i].textContent = "";
-        console.log("tablica" + board[i].value);
     }
-
 }
-
 
 function boardInit() {
     wholeBoard.style.pointerEvents = "all";
     for (i = 0; i < board.length; i++) {
         board[i].value = 0;
         board[i].textContent = "";
-        console.log("tablica" + board[i].value);
     }
     return true;
 }
 
 function changePlayer() {
-    // Changing player
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
 
     player0.classList.toggle("active-player");
@@ -74,24 +53,20 @@ function changePlayer() {
 
     viewActivePlayerText();
 
-
     return player0, player1;
 }
 
 function viewActivePlayerText() {
-
     informations.textContent = "PLAYER " + markers[activePlayer] + " TURN.";
-
 }
 
 function createNewGameBtn() {
-
     informations.classList.add("new-game-button");
     console.log(activePlayer);
     listenerNewGameBtn();
     eval(informations.innerHTML = "NEW GAME");
-
 }
+
 function settingWinner() {
     var winner = document.getElementById("player-" + activePlayer);
     winner.textContent = "WINNER!";
@@ -102,11 +77,9 @@ function draw() {
     settingDraw();
     createNewGameBtn();
     listenerNewGameBtn();
-
 }
 
 function settingDraw() {
-
     player0.textContent = "DRAW";
     player1.textContent = "DRAW";
     if(activePlayer === 0) {
@@ -117,14 +90,11 @@ function settingDraw() {
 }
 
 function listenerNewGameBtn() {
-
     informations.onclick = clearNames;
-
 }
 
 
 function clearNames() {
-
     player0.classList.remove("active-player");
     player1.classList.remove("active-player");
     player0.textContent = "PLAYER X";
@@ -144,21 +114,15 @@ function setActivePlayer() {
 }
 
 function deleteWinClass() {
-
     for (i = 0; i < board.length; i++) {
-
         board[i].classList.remove("win");
-
     }
 }
 
 function blockBoard() {
     wholeBoard.style.pointerEvents = "none";
     console.log("funkcja block board");
-
 }
-
-
 
 function selectWinnerCells(c1, c2, c3) {
     c1.classList.add("win");
@@ -167,13 +131,9 @@ function selectWinnerCells(c1, c2, c3) {
     settingWinner();
     blockBoard();
     createNewGameBtn();
-
-
 }
+
 function getWinner() {
-
-    //Checking win possibilities
-
     if (board[0].innerHTML !== "" && board[0].innerHTML === board[1].innerHTML && board[0].innerHTML === board[2].innerHTML) {
         console.log("win");
         selectWinnerCells(board[0], board[1], board[2]);
@@ -213,9 +173,5 @@ function getWinner() {
             draw();
         }
     }
-
-
 }
 
-console.log(board);
-// getWinner();
